@@ -37,4 +37,4 @@ function insertRatings() {
   setTimeout(insertRatings, 1000);
 }
 
-insertRatings();
+// insertRatings();

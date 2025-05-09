@@ -16,5 +16,5 @@ Shows ratings from [protondb.com](https://www.protondb.com/) on Steam
 ![Screenshot | Platinum Rating](screenshots/screenshot_platinum.png)
 ![Screenshot | Mobile](screenshots/screenshot_mobile.png)
 ![Screenshot | Wishlist](screenshots/screenshot_wishlist.png)
-![Screenshot | Profile Games](screenshots/screenshot_games.png)
+<!-- ![Screenshot | Profile Games](screenshots/screenshot_games.png) -->
 </div>
