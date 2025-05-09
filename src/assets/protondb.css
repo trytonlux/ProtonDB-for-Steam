@@ -2,14 +2,16 @@
     padding-top: 13px;
 }
 
-.protondb_rating_link {
-    text-transform: capitalize;
-    color: #67c1f5
+.protondb_rating_icon {
+    text-decoration: none;
+    color: #67c1f5;
+    font-size: 1.5em;
 }
 
-.Panel .protondb_rating_link {
-    text-transform: uppercase;
+.protondb_rating_link {
     text-decoration: none;
+    text-transform: capitalize;
+    color: #67c1f5;
 }
 
 .protondb_rating_link:hover {

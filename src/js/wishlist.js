@@ -1,46 +1,26 @@
 "use strict";
 
-function isGrid(div) {
-  return getComputedStyle(div).display == "grid";
+function isFlex(div) {
+  return getComputedStyle(div).display == "flex";
+}
+
+function hasSpanChild(div) {
+  return div.childNodes[0].nodeName == "SPAN";
 }
 
 async function insertRating(panel) {
-  const grid = [...panel.querySelectorAll("div")].filter(isGrid)[0];
+  const row = [...panel.querySelectorAll("div")]
+    .filter(isFlex)
+    .filter(hasSpanChild)[0].childNodes[0];
 
-  if (grid.querySelector(".protondb_rating_link")) {
+  if (row.querySelector(".protondb_rating_icon")) {
     return true;
   }
 
-  // increase height of panel to accommodate new row
-  const draggable =
-    document.querySelectorAll("div[data-rfd-droppable-id]").length == 1;
-
-  var inner;
-
-  // "Your Rank" sort option needs a different div adjusted
-  if (draggable) {
-    inner = panel.childNodes[0].childNodes[0];
-  } else {
-    inner = panel.childNodes[0];
-  }
-
-  const innerHeight = parseInt(getComputedStyle(inner).height);
-  inner.style.height = `${innerHeight + 20}px`;
-
   const appid = parseAppId(panel.querySelector("a").href);
-  const rating = await getRatingElement(appid);
+  const rating = getRatingIcon(appid);
 
-  const label = document.createElement("div");
-  const value = document.createElement("div");
-
-  label.className = "label";
-  value.className = "value";
-
-  label.textContent = "ProtonDB:";
-  value.append(rating);
-
-  grid.append(label);
-  grid.append(value);
+  row.append(rating);
 }
 
 function insertRatings() {
