@@ -14,6 +14,10 @@
     color: #67c1f5;
 }
 
+.Panel .protondb_rating_link {
+    text-transform: uppercase;
+}
+
 .protondb_rating_link:hover {
     color: #FFFFFF !important;
 }
@@ -53,4 +57,9 @@
     font-weight: 700;
     letter-spacing: .03em;
     color: var(--typography-color-neutral);
+}
+
+.protondb_row_wishlist {
+    display: flex;
+    gap: var(--spacing-1);
 }
