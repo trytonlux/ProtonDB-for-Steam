@@ -4,23 +4,36 @@ function isFlex(div) {
   return getComputedStyle(div).display == "flex";
 }
 
-function hasSpanChild(div) {
-  return div.childNodes[0].nodeName == "SPAN";
+function hasStyleAttribute(div) {
+  return div.hasAttribute("style");
 }
 
 async function insertRating(panel) {
   const row = [...panel.querySelectorAll("div")]
     .filter(isFlex)
-    .filter(hasSpanChild)[0].childNodes[0];
+    .filter(hasStyleAttribute)[0].parentNode;
 
-  if (row.querySelector(".protondb_rating_icon")) {
+  if (row.querySelector(".protondb_rating_link")) {
     return true;
   }
 
-  const appid = parseAppId(panel.querySelector("a").href);
-  const rating = getRatingIcon(appid);
+  var column = document.createElement("div");
+  var label = document.createElement("div");
+  var value = document.createElement("div");
 
-  row.append(rating);
+  label.className = "label";
+  value.className = "value";
+
+  column.className = "protondb_row_wishlist";
+
+  label.textContent = "ProtonDB:";
+  column.append(label);
+
+  const appid = parseAppId(panel.querySelector("a").href)
+  value.append(getRatingElement(appid));
+  column.append(value);
+
+  row.append(column);
 }
 
 function insertRatings() {
