@@ -18,6 +18,10 @@
     text-transform: uppercase;
 }
 
+.gameslistitems_ProtonRating .protondb_rating_link {
+    text-transform: capitalize;
+}
+
 .protondb_rating_link:hover {
     color: #FFFFFF !important;
 }
@@ -62,4 +66,10 @@
 .protondb_row_wishlist {
     display: flex;
     gap: var(--spacing-1);
+}
+
+
+
+.gameslistitems_ProtonRating {
+    text-align: right;
 }
